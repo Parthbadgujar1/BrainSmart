@@ -1,0 +1,22 @@
+{
+  "name": "brainsmart-school-website",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Official website for BrainSmart School — React + Vite, deployable on Vercel.",
+  "scripts": {
+    "dev": "vite",
+    "prebuild": "node scripts/generate-sitemap.mjs",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.11"
+  }
+}
