@@ -34,30 +34,47 @@ export const site = {
   },
 };
 
+// Shown as a thin banner above the site while the content and pictures are samples.
+// Set to false (or delete the banner) at launch.
+export const demoMode = true;
+
+// `art` picks one of the illustrated sample scenes (see src/components/art). For real photography add
+// `image: '/images/your-photo.jpg'` — it replaces the illustration automatically.
 export const heroSlides = [
   {
     title: 'Welcome to BrainSmart School',
     text: 'A brand-new school built around curious minds, caring teachers and families who are partners in learning.',
     cta: { label: 'Enrol your child', to: '/parents/registration-withdrawal' },
     tone: 'navy',
+    art: 'campus',
+  },
+  {
+    title: 'Where Curiosity Comes to Class',
+    text: 'Hands-on lessons, small classes and teachers who know every child by name.',
+    cta: { label: 'Explore academics', to: '/academics' },
+    tone: 'teal',
+    art: 'classroom',
+  },
+  {
+    title: 'Science, Robotics & Big Ideas',
+    text: 'From bubbling experiments to building robots — our STEM labs turn “why?” into “I did it!”.',
+    cta: { label: 'Meet our programs', to: '/programs-services' },
+    tone: 'coral',
+    art: 'stem',
   },
   {
     title: '2026 – 2027 School Supply Lists',
     text: 'Find the supply list for every grade level and get ready for a great year.',
     cta: { label: 'View supply lists', to: '/parents/supply-lists' },
-    tone: 'teal',
-  },
-  {
-    title: 'Free & Reduced-Price Meals',
-    text: 'Apply today so your child can enjoy healthy breakfasts and lunches at school.',
-    cta: { label: 'Cafeteria information', to: '/parents/cafeteria' },
     tone: 'amber',
+    art: 'art',
   },
   {
     title: 'Book Fair & Family Spirit Night',
     text: 'Join us for books, food and fun — every purchase supports our school library.',
     cta: { label: 'See upcoming events', to: '/calendar' },
-    tone: 'coral',
+    tone: 'navy',
+    art: 'library',
   },
 ];
 

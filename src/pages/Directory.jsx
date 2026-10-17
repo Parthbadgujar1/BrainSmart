@@ -3,6 +3,7 @@ import { staff } from '../data/staff.js';
 import { site } from '../data/site.js';
 import PageShell from '../components/PageShell.jsx';
 import Icon from '../components/Icon.jsx';
+import { Avatar } from '../components/art/Art.jsx';
 
 const emailFor = (s) => s.email || `${s.first}.${s.last}@${site.emailDomain}`.toLowerCase();
 
@@ -24,7 +25,7 @@ export default function Directory() {
   }, [keyword, first, last]);
 
   return (
-    <PageShell path="/directory" title="Faculty & Staff" intro="Meet the people who make BrainSmart School a great place to learn.">
+    <PageShell path="/directory" title="Faculty & Staff" intro="Meet the people who make BrainSmart School a great place to learn." art="community">
       <form className="directory-search" role="search" onSubmit={(e) => e.preventDefault()}>
         <label>
           Keyword
@@ -58,10 +59,7 @@ export default function Directory() {
       <ul className="staff-list">
         {results.map((s) => (
           <li key={`${s.first}${s.last}`} className="staff-card">
-            <span className="avatar" aria-hidden="true">
-              {s.first[0]}
-              {s.last[0]}
-            </span>
+            <Avatar seed={`${s.first}${s.last}`} size={64} />
             <div>
               <h2>
                 {s.first} {s.last}
@@ -69,6 +67,7 @@ export default function Directory() {
               <p className="staff-role">
                 {s.title} · {s.dept}
               </p>
+              {s.fun && <p className="staff-fun">“{s.fun}”</p>}
               <a href={`mailto:${emailFor(s)}`}>
                 <Icon name="mail" size={15} /> {emailFor(s)}
               </a>

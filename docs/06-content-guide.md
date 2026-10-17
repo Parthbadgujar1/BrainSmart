@@ -39,6 +39,14 @@ All wording, images and documents come from the school's private project consult
 | News thumbnail | 800 × 500 | JPG / WebP | 120 KB |
 | Logo | any (vector preferred) | SVG / PNG | 100 KB |
 
+## 2b. Sample pictures, sample wording & the preview banner
+
+For the client demo the site ships with:
+
+- **Original illustrated "photos"** (16 scenes — campus, classroom, library, science lab, music, robotics, cafeteria, playground, garden…) drawn as SVG in `src/components/art/`. They are free of licence issues and animate gently (drifting clouds, swinging swings, spinning gears). Replace them with real photos at launch: add `image: '/images/photo.jpg'` to a hero slide (`src/data/site.js`) or news item (`src/data/news.js`) and the photo replaces the illustration automatically. Page banners and gallery blocks can be switched to photos the same way.
+- **Sample wording on every page** (FAQs, timelines, tables, menus, club schedules, testimonials, staff bios) so the client can judge layout and tone. It is clearly *sample* — figures such as survey percentages and prices are illustrative, and testimonials are marked "(sample)".
+- A thin **"Design preview" banner** across the top (`demoMode` in `src/data/site.js`). Set `demoMode = false` before launch to remove it.
+
 ## 3. Where content lives in the code (for the developer)
 
 | What | File |
@@ -66,7 +74,7 @@ Each page is an object with a title, intro and blocks:
 ]),
 ```
 
-Available blocks: `h2`, `h3`, `p`, `ul`, `ol`, `note`, `links`, `hours`, `steps`, and `{ type: 'form', kind: 'admissions' }`.
+Available blocks: `h2`, `h3`, `p`, `ul`, `ol`, `note`, `links`, `hours`, `steps`, `cards`, `faq`, `table`, `timeline`, `stats`, `quote`, `image`, `gallery`, `files`, and `{ type: 'form', kind: 'admissions' }`. The optional 4th argument of `page(title, intro, blocks, art)` picks the banner picture (`'campus'`, `'classroom'`, `'library'`, … or `false` for none).
 
 ### Adding a new page
 1. Add the page to `src/data/pages.js` with its URL path as the key.

@@ -10,7 +10,7 @@ export default function ContentPage() {
 
   if (!page) {
     return (
-      <PageShell path={path} title="Page not found" intro="Sorry, we couldn’t find the page you were looking for." trail={[]}>
+      <PageShell path={path} title="Page not found" intro="Sorry, we couldn’t find the page you were looking for." trail={[]} art="playground">
         <div className="link-buttons">
           <Link to="/" className="btn btn-primary">
             Go to the home page
@@ -24,7 +24,7 @@ export default function ContentPage() {
   }
 
   return (
-    <PageShell path={path} title={page.title} intro={page.intro}>
+    <PageShell path={path} title={page.title} intro={page.intro} art={page.art}>
       <Blocks blocks={page.blocks} />
     </PageShell>
   );

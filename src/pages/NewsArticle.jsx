@@ -17,7 +17,7 @@ export default function NewsArticle() {
   }
 
   return (
-    <PageShell path={`/news/${slug}`} title={item.title} trail={[{ label: 'News', to: '/news' }, { label: item.title, to: `/news/${slug}` }]}>
+    <PageShell path={`/news/${slug}`} title={item.title} art={item.art} trail={[{ label: 'News', to: '/news' }, { label: item.title, to: `/news/${slug}` }]}>
       <time className="article-date" dateTime={item.date}>
         {formatDate(item.date)}
       </time>

@@ -3,8 +3,13 @@ import { news } from '../data/news.js';
 import { staff } from '../data/staff.js';
 
 // Builds a small in-memory index over all page text, news and staff so the site search works without a backend.
+const itemText = (i) => (typeof i === 'string' ? i : Object.values(i).filter((v) => typeof v === 'string').join(' '));
 const textOf = (page) =>
-  [page.title, page.intro, ...page.blocks.flatMap((b) => [b.text, ...(b.items || []).map((i) => (typeof i === 'string' ? i : `${i.label || i.title || ''} ${i.text || ''}`))])]
+  [
+    page.title,
+    page.intro,
+    ...page.blocks.flatMap((b) => [b.text, ...(b.items || []).map(itemText), ...(b.rows || []).map((r) => r.join(' '))]),
+  ]
     .filter(Boolean)
     .join(' ');
 

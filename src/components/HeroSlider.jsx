@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { heroSlides } from '../data/site.js';
 import SmartLink from './SmartLink.jsx';
 import Icon from './Icon.jsx';
+import Art from './art/Art.jsx';
 
 const reducedMotion = () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
@@ -12,7 +13,7 @@ export default function HeroSlider() {
 
   useEffect(() => {
     if (!playing) return undefined;
-    const id = setInterval(() => setIndex((i) => (i + 1) % count), 6500);
+    const id = setInterval(() => setIndex((i) => (i + 1) % count), 7000);
     return () => clearInterval(id);
   }, [playing, count]);
 
@@ -24,13 +25,15 @@ export default function HeroSlider() {
         {heroSlides.map((slide, i) => (
           <div
             key={slide.title}
-            className={`hero-slide tone-${slide.tone}`}
-            style={slide.image ? { backgroundImage: `linear-gradient(90deg, rgba(10,20,70,.8), rgba(10,20,70,.2)), url(${slide.image})` } : undefined}
+            className={`hero-slide tone-${slide.tone} ${i === index ? 'is-active' : ''}`}
             role="group"
             aria-roledescription="slide"
             aria-label={`${i + 1} of ${count}`}
             aria-hidden={i !== index}
           >
+            <div className="hero-art">
+              {slide.image ? <img src={slide.image} alt="" /> : <Art name={slide.art} />}
+            </div>
             <div className="container hero-content">
               <h2>{slide.title}</h2>
               <p>{slide.text}</p>

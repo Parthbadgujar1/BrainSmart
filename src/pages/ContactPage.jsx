@@ -5,7 +5,7 @@ import Icon from '../components/Icon.jsx';
 
 export default function ContactPage() {
   return (
-    <PageShell path="/contact" title="Contact Us" intro="We’d love to hear from you." trail={[]}>
+    <PageShell path="/contact" title="Contact Us" intro="Questions, tour requests or ideas? We’d love to hear from you." trail={[]} art="family">
       <div className="contact-grid">
         <div>
           <ContactForm kind="contact" />

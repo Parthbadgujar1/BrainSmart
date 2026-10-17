@@ -46,7 +46,7 @@ export default function CalendarPage() {
   }, [cursor]);
 
   return (
-    <PageShell path="/calendar" title="Calendar" intro="Important dates for 2026 – 2027. Sample dates shown until the official calendar is supplied.">
+    <PageShell path="/calendar" title="Calendar" intro="Concerts, book fairs, family nights and holidays — everything happening at BrainSmart in 2026 – 2027." art="playground">
       <div className="cal-toolbar">
         <div className="cal-nav">
           <button type="button" onClick={() => move(-1)} aria-label={`Previous ${view}`}>
